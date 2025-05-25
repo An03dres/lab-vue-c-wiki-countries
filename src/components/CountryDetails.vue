@@ -35,6 +35,7 @@ const route = useRoute();
 const country = ref(null);
 
 const fetchCountry = async (code) => {
+  country.value = null;
   const res = await fetch(`https://ih-countries-api.herokuapp.com/countries/${code}`);
   country.value = await res.json();
 };
@@ -50,3 +51,13 @@ watch(
   }
 );
 </script>
+
+<style>
+.list-group-item {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+</style>
